@@ -1,0 +1,54 @@
+<resources>
+    <string name="app_name">RaksaTunnitApp</string>
+    <string-array name="two_week_array">
+        <item>Viikko 1 ma</item>
+        <item>Viikko 1 ti</item>
+        <item>Viikko 1 ke</item>
+        <item>Viikko 1 to</item>
+        <item>Viikko 1 pe</item>
+        <item>Viikko 1 la</item>
+        <item>Viikko 1 su</item>
+        <item>Viikko 2 ma</item>
+        <item>Viikko 2 ti</item>
+        <item>Viikko 2 ke</item>
+        <item>Viikko 2 to</item>
+        <item>Viikko 2 pe</item>
+        <item>Viikko 2 la</item>
+        <item>Viikko 2 su</item>
+    </string-array>
+    <string-array name="car_array">
+        <item>oma auto</item>
+        <item>firman auto</item>
+    </string-array>
+    <string-array name="work_hours_array">
+        <item>0</item>
+        <item>0.5</item>
+        <item>1</item>
+        <item>1.5</item>
+        <item>2</item>
+        <item>2.5</item>
+        <item>3</item>
+        <item>3.5</item>
+        <item>4</item>
+        <item>4.5</item>
+        <item>5</item>
+        <item>5.5</item>
+        <item>6</item>
+        <item>6.5</item>
+        <item>7</item>
+        <item>7.5</item>
+        <item>8</item>
+        <item>8.5</item>
+        <item>9</item>
+        <item>9.5</item>
+        <item>10</item>
+        <item>10.5</item>
+        <item>11</item>
+        <item>11.5</item>
+        <item>12</item>
+        <item>sairasloma</item>
+        <item>poissa</item>
+        <item>loma</item>
+
+    </string-array>
+</resources>
