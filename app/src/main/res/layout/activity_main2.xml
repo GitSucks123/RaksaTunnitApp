@@ -93,7 +93,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Auto"
+        android:text="Ajoneuvo"
         android:textSize="20sp"
         app:layout_constraintTop_toBottomOf="@id/distanceEditText"
         app:layout_constraintLeft_toRightOf="@id/workHoursSpinner"
@@ -119,6 +119,8 @@
         app:layout_constraintTop_toBottomOf="@+id/carSpinner"
         android:layout_marginTop="20dp"
         android:text="Tallenna"
+        android:background="@drawable/button_bg"
+
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

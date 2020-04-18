@@ -3,32 +3,33 @@ package com.example.raksatunnitapp;
 import java.io.Serializable;
 
 public class dayData implements Serializable{
-    String  workHours = "";
-    String workCommute = "";
-    String workLocation = "";
-    String workVehicle = "";
-    public void setWorkHours(String hours){ workHours = hours; }
-    public void setWorkCommute(String commute){
+    private String  workHours = "";
+    private String workCommute = "";
+    private String workLocation = "";
+    private String workVehicle = "";
+
+    void setWorkHours(String hours){ workHours = hours; }
+    void setWorkCommute(String commute){
     workCommute = commute;
     }
-    public void setWork(String location){
+    void setWork(String location){
     workLocation = location;
     }
-    public void setWorkVehicle(String vehicle)
+    void setWorkVehicle(String vehicle)
     {
      workVehicle = vehicle;
     }
 
-    public String getWorkHours(){
+     String getWorkHours(){
         return workHours;
     }
-    public String getWorkCommute(){
+     String getWorkCommute(){
         return workCommute;
     }
-    public String getWorkVehicle(){
+     String getWorkVehicle(){
         return workVehicle;
     }
-    public String getWorkLocation(){
+     String getWorkLocation(){
         return workLocation;
     }
 }

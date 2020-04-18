@@ -47,7 +47,8 @@ public class MainActivity extends AppCompatActivity {
     private String email;
     private String week;
     String emailMessage;
-    private String[] dayList = {"Viikko 1 Maanantai","Viikko 1 Tiistai","Viikko 1 Keskiviikko","Viikko 1 Torstai","Viikko 1 Perjantai","Viikko 1 Lauantai","Viikko 1 Sunnuntai","Viikko 2 Maanantai","Viikko 2 Tiistai","Viikko 2 Keskiviikko","Viikko 2 Torstai","Viikko 2 Perjantai","Viikko 2 Lauantai","Viikko 2 Sunnuntai"};
+    //private String[] dayList = {"Viikko 1 Maanantai","Viikko 1 Tiistai","Viikko 1 Keskiviikko","Viikko 1 Torstai","Viikko 1 Perjantai","Viikko 1 Lauantai","Viikko 1 Sunnuntai","Viikko 2 Maanantai","Viikko 2 Tiistai","Viikko 2 Keskiviikko","Viikko 2 Torstai","Viikko 2 Perjantai","Viikko 2 Lauantai","Viikko 2 Sunnuntai"};
+    private String[] dayList = {"Viikko 1 Ma","Viikko 1 Ti","Viikko 1 Ke","Viikko 1 To","Viikko 1 Pe","Viikko 1 La","Viikko 1 Su","Viikko 2 Ma","Viikko 2 Ti","Viikko 2 Ke","Viikko 2 To","Viikko 2 Pe","Viikko 2 La","Viikko 2 Su"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -107,7 +108,7 @@ public class MainActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if(data != null){
             dailyDataList = (List<dayData>) data.getSerializableExtra("list2");
-
+            saveData();
         }
 
     }
@@ -159,7 +160,7 @@ public class MainActivity extends AppCompatActivity {
         String[] CC = {""};
         Intent emailIntent = new Intent(Intent.ACTION_SEND);
         emailIntent.setData(Uri.parse("mailto:"));
-        emailIntent.setType("text/plain");
+        emailIntent.setType("message/rfc822");
 
 
         buildEmailMessage();
@@ -180,14 +181,14 @@ public class MainActivity extends AppCompatActivity {
     public void buildEmailMessage(){
         int days = dailyDataList.size();
         StringBuilder message = new StringBuilder();
-        message.append("viikko: " + weekET.getText().toString() + System.getProperty ("line.separator"));
-        message.append("Lisätietoja: " + informationET.getText().toString()+ System.getProperty ("line.separator"));
-        message.append("Työmaa-ajo: " + workDriving.getText().toString()+ System.getProperty ("line.separator"));
+        message.append("Viikko: ").append(weekET.getText().toString()).append(System.getProperty("line.separator"));
+        message.append("Nimi: " + nameET.getText().toString()).append(System.getProperty("line.separator"));
+        message.append("Lisätietoja: ").append(informationET.getText().toString()).append(System.getProperty("line.separator"));
+        message.append("Työmaa-ajo: ").append(workDriving.getText().toString()).append("km ").append(System.getProperty("line.separator"));
 
 
         for(int i = 0;i < days;i++){
-            dailyDataList.get(i).getWorkHours();
-            message.append("Päivä: " + dayList[i] +" /Työmaa: "+dailyDataList.get(i).getWorkLocation().toString() + " /Työmatka: " + dailyDataList.get(i).getWorkCommute() + " /Ajoneuvo: " + dailyDataList.get(i).getWorkVehicle() + " /Tunnit: " + dailyDataList.get(i).getWorkHours() + System.getProperty ("line.separator"));
+            message.append(dayList[i]).append(" /Työmaa: ").append(dailyDataList.get(i).getWorkLocation().toString()).append(" /Työmatka: ").append(dailyDataList.get(i).getWorkCommute()).append(" /Ajoneuvo: ").append(dailyDataList.get(i).getWorkVehicle()).append(" /Tunnit: ").append(dailyDataList.get(i).getWorkHours()).append(System.getProperty("line.separator"));
         }
 
         emailMessage = message.toString();

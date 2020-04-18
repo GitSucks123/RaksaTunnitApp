@@ -35,7 +35,7 @@ public class Main2Activity extends AppCompatActivity {
         dayText = findViewById(R.id.dayTextView);
         List<String> dayList = Arrays.asList(getResources().getStringArray(R.array.two_week_array));
 
-        //Spinnerit
+
         carSpinner = findViewById(R.id.carSpinner);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.car_array, android.R.layout.simple_spinner_item);
@@ -62,7 +62,7 @@ public class Main2Activity extends AppCompatActivity {
         String compareCarValue = dailyDataList.get(index).getWorkVehicle();
         String compareHoursValue = dailyDataList.get(index).getWorkHours();;
 
-        //spinnerien asettelu
+
         if (compareHoursValue != null) {
             int spinnerPosition = adapter2.getPosition(compareHoursValue);
             hoursSpinner.setSelection(spinnerPosition);
