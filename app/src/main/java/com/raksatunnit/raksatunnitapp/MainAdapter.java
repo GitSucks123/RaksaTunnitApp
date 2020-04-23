@@ -108,16 +108,16 @@ public class MainAdapter extends BaseAdapter {
 
         for (int i = 0;i < 5;i++){
 
-            if(!dailyDataList.get(position).getWorkLocation(i).equals("")){
+            if(!dailyDataList.get(position).getWorkLocation(i).equals("")||!dailyDataList.get(position).getWorkCommute(i).equals("")||!dailyDataList.get(position).getWorkHours(i).equals("")||!dailyDataList.get(position).getWorkVehicle(i).equals("")){
                 if(i==0 && dailyDataList.get(position).getWorkLocation(i+1).equals("")){
                     location.append("Työmaa").append(": ").append(dailyDataList.get(position).getWorkLocation(i)).append(System.getProperty("line.separator"));
-                    hours.append("Tunnit").append(": ").append(dailyDataList.get(position).getWorkHours(i)).append("h").append(System.getProperty("line.separator"));
+                    hours.append("Työtunnit").append(": ").append(dailyDataList.get(position).getWorkHours(i)).append("h").append(System.getProperty("line.separator"));
                     vehicle.append("Ajoneuvo").append(": ").append(dailyDataList.get(position).getWorkVehicle(i)).append(System.getProperty("line.separator"));
                     commute.append("Työmatka").append(": ").append(dailyDataList.get(position).getWorkCommute(i)).append("km").append(System.getProperty("line.separator"));
 
                 }else{
                     location.append("Työmaa").append(i+1).append(": ").append(dailyDataList.get(position).getWorkLocation(i)).append(System.getProperty("line.separator"));
-                    hours.append("Tunnit").append(i+1).append(": ").append(dailyDataList.get(position).getWorkHours(i)).append("h").append(System.getProperty("line.separator"));
+                    hours.append("Työtunnit").append(i+1).append(": ").append(dailyDataList.get(position).getWorkHours(i)).append("h").append(System.getProperty("line.separator"));
                     vehicle.append("Ajoneuvo").append(i+1).append(": ").append(dailyDataList.get(position).getWorkVehicle(i)).append(System.getProperty("line.separator"));
                     commute.append("Työmatka").append(i+1).append(": ").append(dailyDataList.get(position).getWorkCommute(i)).append("km").append(System.getProperty("line.separator"));
                 }
@@ -126,7 +126,7 @@ public class MainAdapter extends BaseAdapter {
 
                 if(i == 0){
                     locationS = "Työmaa";
-                    hoursS = "Tunnit";
+                    hoursS = "Työtunnit";
                     vehicleS = "Ajoneuvo";
                     commuteS = "työmatka";
                 }else{

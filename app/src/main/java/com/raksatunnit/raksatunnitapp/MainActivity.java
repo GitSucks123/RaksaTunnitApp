@@ -100,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         openList = true;
-
+        workHours();
     }
 
     @Override
@@ -181,14 +181,28 @@ public class MainActivity extends AppCompatActivity {
     public void buildEmailMessage(){
         int days = dailyDataList.size();
         StringBuilder message = new StringBuilder();
+        double workHoursCombined = workHours();
         message.append("Viikko: ").append(weekET.getText().toString()).append(System.getProperty("line.separator"));
         message.append("Nimi: " + nameET.getText().toString()).append(System.getProperty("line.separator"));
         message.append("Lisätietoja: ").append(informationET.getText().toString()).append(System.getProperty("line.separator"));
         message.append("Työmaa-ajo: ").append(workDriving.getText().toString()).append("km ").append(System.getProperty("line.separator"));
+        message.append("Työtunnit yhteensä: ").append(workHours()).append("h ").append(System.getProperty("line.separator")).append(System.getProperty("line.separator"));
 
 
         for(int i = 0;i < days;i++){
-            message.append(dayList[i]).append(" /Työmaa: ").append(dailyDataList.get(i).getWorkLocation(0).toString()).append(" /Työmatka: ").append(dailyDataList.get(i).getWorkCommute(0)).append(" /Ajoneuvo: ").append(dailyDataList.get(i).getWorkVehicle(0)).append(" /Tunnit: ").append(dailyDataList.get(i).getWorkHours(0)).append(System.getProperty("line.separator"));
+            for(int x = 0;x < 5;x++){
+                if(!dailyDataList.get(i).getWorkLocation(x).equals("")){
+                    message.append(dayList[i]).append(" /Työmaa: ").append(dailyDataList.get(i).getWorkLocation(x)).append(" /Työmatka: ").append(dailyDataList.get(i).getWorkCommute(x)).append(" /Ajoneuvo: ").append(dailyDataList.get(i).getWorkVehicle(x)).append(" /Tunnit: ").append(dailyDataList.get(i).getWorkHours(x)).append(System.getProperty("line.separator"));
+                }else{
+                    if(x==0){
+                        message.append(dayList[i]).append(" /Työmaa: ").append(dailyDataList.get(i).getWorkLocation(x)).append(" /Työmatka: ").append(dailyDataList.get(i).getWorkCommute(x)).append(" /Ajoneuvo: ").append(dailyDataList.get(i).getWorkVehicle(x)).append(" /Tunnit: ").append(dailyDataList.get(i).getWorkHours(x)).append(System.getProperty("line.separator"));
+                    }
+
+                    break;
+                }
+            }
+
+            message.append(System.getProperty("line.separator"));
         }
 
         emailMessage = message.toString();
@@ -198,5 +212,20 @@ public class MainActivity extends AppCompatActivity {
     public void onBackPressed() {
         super.onBackPressed();
         saveData();
+    }
+
+    public double workHours(){
+        double workHoursSum = 0;
+        for(int i = 0;i<dailyDataList.size();i++){
+            for(int x = 0;x < 5; x++)
+            {
+                if (!dailyDataList.get(i).getWorkHours(x).equals("")){
+                    workHoursSum = workHoursSum + Double.parseDouble(dailyDataList.get(i).getWorkHours(x));
+                }
+
+            }
+        }
+
+        return workHoursSum;
     }
 }
