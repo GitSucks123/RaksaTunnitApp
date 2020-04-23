@@ -17,11 +17,12 @@
         <item>Viikko 2 su</item>
     </string-array>
     <string-array name="car_array">
+        <item> </item>
         <item>oma auto</item>
         <item>firman auto</item>
-        <item> </item>
     </string-array>
     <string-array name="work_hours_array">
+        <item></item>
         <item>0</item>
         <item>0.5</item>
         <item>1</item>
@@ -51,5 +52,13 @@
         <item>poissa</item>
         <item>loma</item>
 
+    </string-array>
+
+    <string-array name="page_array">
+        <item>Työmaa 1</item>
+        <item>Työmaa 2</item>
+        <item>Työmaa 3</item>
+        <item>Työmaa 4</item>
+        <item>Työmaa 5</item>
     </string-array>
 </resources>
