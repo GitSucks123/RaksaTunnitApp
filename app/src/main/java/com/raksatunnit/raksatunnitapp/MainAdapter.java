@@ -128,7 +128,7 @@ public class MainAdapter extends BaseAdapter {
                     locationS = "Työmaa";
                     hoursS = "Työtunnit";
                     vehicleS = "Ajoneuvo";
-                    commuteS = "työmatka";
+                    commuteS = "Työmatka";
                 }else{
                     location.setLength(location.length() - 1);
                     hours.setLength(hours.length() - 1);

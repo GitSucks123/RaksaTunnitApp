@@ -183,7 +183,7 @@ public class MainActivity extends AppCompatActivity {
         StringBuilder message = new StringBuilder();
         double workHoursCombined = workHours();
         message.append("Viikko: ").append(weekET.getText().toString()).append(System.getProperty("line.separator"));
-        message.append("Nimi: " + nameET.getText().toString()).append(System.getProperty("line.separator"));
+        message.append("Nimi: ").append(nameET.getText().toString()).append(System.getProperty("line.separator"));
         message.append("Lisätietoja: ").append(informationET.getText().toString()).append(System.getProperty("line.separator"));
         message.append("Työmaa-ajo: ").append(workDriving.getText().toString()).append("km ").append(System.getProperty("line.separator"));
         message.append("Työtunnit yhteensä: ").append(workHours()).append("h ").append(System.getProperty("line.separator")).append(System.getProperty("line.separator"));
